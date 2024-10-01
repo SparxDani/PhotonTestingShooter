@@ -41,15 +41,28 @@ public class FactoryBuilder : MonoBehaviour
         
     }
 
-	public GameObject BuilderPlayer(string prefabnameSand, string nickname,Transform spawnTransform)
+	//public GameObject BuilderPlayer(string prefabnameSand, string nickname,Transform spawnTransform)
+	//{
+
+	//	GameObject player=null;
+	//	player = PhotonNetwork.Instantiate(Path.Combine("Prefabs/Characters", prefabnameSand), spawnTransform.position, spawnTransform.rotation, 0);
+	//	if (player != null)
+	//	{
+	//		PlayerSetup _PlayerSetup = player.GetComponent<PlayerSetup>();
+	//		player.GetComponent<PhotonView>().Controller.NickName= nickname;
+	//	}
+	//	return player;
+	//}
+
+	public GameObject BuilderPlayer(string nickname, Transform spawnTransform)
 	{
-		
-		GameObject player=null;
-		player = PhotonNetwork.Instantiate(Path.Combine("Prefabs/Characters", prefabnameSand), spawnTransform.position, spawnTransform.rotation, 0);
+
+		GameObject player = null;
+		player = PhotonNetwork.Instantiate(Path.Combine("Prefabs/Characters", "Player1"), spawnTransform.position, spawnTransform.rotation, 0);
 		if (player != null)
 		{
-			PlayerSetup _PlayerSetup = player.GetComponent<PlayerSetup>();
-			player.GetComponent<PhotonView>().Controller.NickName= nickname;
+			//PlayerSetup _PlayerSetup = player.GetComponent<PlayerSetup>();
+			player.GetComponent<PhotonView>().Controller.NickName = nickname;
 		}
 		return player;
 	}
@@ -57,7 +70,7 @@ public class FactoryBuilder : MonoBehaviour
 	{
 
 		GameObject zombie = null;
-		zombie = PhotonNetwork.Instantiate(Path.Combine("Prefabs/Zombie", prefabnameSand), spawnTransform.position, spawnTransform.rotation, 0);
+		zombie = PhotonNetwork.Instantiate(Path.Combine("Prefabs/Zombie", "Player1"), spawnTransform.position, spawnTransform.rotation, 0);
 		
 		return zombie;
 	}
