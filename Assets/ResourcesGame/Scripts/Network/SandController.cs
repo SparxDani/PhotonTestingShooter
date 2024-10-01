@@ -81,30 +81,31 @@ public class SandController : MonoBehaviourPunCallbacks, IInRoomCallbacks
     private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)
     {
         UINickName.text = "NickName: " + PhotonNetwork.NickName;
-        PlayerGame = FactoryBuilder.instance.BuilderPlayer(PlayerInfo.instance.Selectedcharacter, PhotonNetwork.NickName, SpawnerPlayer());
+        //PlayerGame = FactoryBuilder.instance.BuilderPlayer(PlayerInfo.instance.Selectedcharacter, PhotonNetwork.NickName, SpawnerPlayer());
+        PlayerGame = FactoryBuilder.instance.BuilderPlayer(PhotonNetwork.NickName, SpawnerPlayer());
 
 
 
-        if (PlayerGame.GetComponent<PhotonView>().IsMine)
-        {
+        //if (PlayerGame.GetComponent<PhotonView>().IsMine)
+        //{
 
-            HealthPlayer _HealthPlayerSetup = PlayerGame.GetComponent<HealthPlayer>();
+        //    HealthPlayer _HealthPlayerSetup = PlayerGame.GetComponent<HealthPlayer>();
 
-            if (_HealthPlayerSetup != null)
-            {
-                _HealthPlayerSetup.HealthBarLocal = healthUI;
-                _HealthPlayerSetup.IndicatorDamageScreen = IndicatorDamageScreen;
-            }
+        //    if (_HealthPlayerSetup != null)
+        //    {
+        //        _HealthPlayerSetup.HealthBarLocal = healthUI;
+        //        _HealthPlayerSetup.IndicatorDamageScreen = IndicatorDamageScreen;
+        //    }
 
-        }
+        //}
 
         print("OnSceneFinishedLoading...");
 
-        for (int i = 0; i < CountZombie; i++)
-        {
-            FactoryBuilder.instance.BuilderZombie("Zombie1", SpawnerZombie());
+            //for (int i = 0; i < CountZombie; i++)
+            //{
+            //    FactoryBuilder.instance.BuilderZombie("Zombie1", SpawnerZombie());
 
-        }
+            //}
 
     }
 
