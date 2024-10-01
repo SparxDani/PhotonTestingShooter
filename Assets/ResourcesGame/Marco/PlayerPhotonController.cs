@@ -31,7 +31,7 @@ public class PlayerPhotonController : MonoBehaviour
             Destroy(characterController);
             Destroy(GetComponent<PlayerMP>());
 
-            Destroy(this);
+           
         }
         else
         {
@@ -39,6 +39,19 @@ public class PlayerPhotonController : MonoBehaviour
             {
                 Destroy(NickName);
             }
+        }
+    }
+
+    private void Update()
+    {
+        if (photonView.IsMine == false)
+        {
+            
+            if (NickName != null)
+            {
+                NickName.transform.LookAt(Camera.main.transform);
+            }
+             
         }
     }
 }
